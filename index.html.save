@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#2563eb">
+  <title>StudyBuddy</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1 id="appTitle">StudyBuddy</h1>
+    <div class="header-actions">
+      <button id="langToggle" class="icon-btn">हि/EN</button>
+      <button id="themeToggle" class="icon-btn">◐</button>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section id="onboardingView" class="view">
+      <h2 data-i18n="onboardingTitle">Let’s set up your study plan</h2>
+
+      <form id="onboardingForm">
+        <label for="displayName">Name</label>
+        <input id="displayName" name="displayName" required>
+
+        <fieldset>
+          <legend>Language</legend>
+          <label><input type="radio" name="language" value="en" checked> English</label>
+          <label><input type="radio" name="language" value="hi"> हिन्दी</label>
+        </fieldset>
+
+        <label for="studyClass">Class</label>
+        <select id="studyClass" name="studyClass" required>
+          <option value="">Select class</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+        </select>
+
+        <label for="board">Board</label>
+        <select id="board" name="board" required>
+          <option value="">Select board</option>
+          <option>CBSE</option>
+          <option>ICSE</option>
+          <option>UP Board</option>
+          <option>Other</option>
+        </select>
+
+        <label for="session">Academic session</label>
+        <input id="session" name="session" placeholder="2026-27" required>
+
+        <fieldset>
+          <legend>Exam goals</legend>
+          <label><input type="checkbox" name="goals" value="Board"> Board</label>
+          <label><input type="checkbox" name="goals" value="JEE Main"> JEE Main</label>
+          <label><input type="checkbox" name="goals" value="JEE Advanced"> JEE Advanced</label>
+          <label><input type="checkbox" name="goals" value="NEET"> NEET</label>
+        </fieldset>
+
+        <p id="formError" class="error" hidden></p>
+        <button class="primary-btn" type="submit">Save and continue</button>
+      </form>
+    </section>
+
+    <section id="dashboardView" class="view" hidden>
+      <h2 data-i18n="dashboard">Dashboard</h2>
+      <div id="profileCard" class="card"></div>
+      <div class="card">
+        <h3>Today</h3>
+        <p class="muted">Timetable aur tasks Stage 3 me aayenge.</p>
+      </div>
+      <button id="resetProfile" class="danger-btn">Reset local profile</button>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-route="onboarding">Setup</button>
+    <button class="nav-btn" data-route="dashboard">Home</button>
+  </nav>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/onboarding.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</htm
