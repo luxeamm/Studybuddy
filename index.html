@@ -85,5 +85,32 @@
   <script src="js/storage.js"></script>
   <script src="js/onboarding.js"></script>
   <script src="js/app.js"></script>
+
+<script id="studybuddy-offline-registration">
+window.addEventListener("load", function () {
+  const status = document.createElement("p");
+  status.className = "muted";
+  status.setAttribute("role", "status");
+  status.textContent = "Offline setup ho raha hai...";
+  document.querySelector("main").append(status);
+
+  if (!("serviceWorker" in navigator)) {
+    status.textContent = "Is browser me offline support available nahi hai.";
+    return;
+  }
+
+  navigator.serviceWorker.register("./sw.js")
+    .then(function () {
+      return navigator.serviceWorker.ready;
+    })
+    .then(function () {
+      status.textContent = "Offline app shell ready.";
+    })
+    .catch(function (error) {
+      status.textContent = "Offline setup fail hua. Internet/server aur required files check karein.";
+      console.error("Service worker setup failed:", error);
+    });
+});
+</script>
 </body>
 </html>
